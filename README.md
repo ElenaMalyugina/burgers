@@ -1,0 +1,1 @@
+Path to Admin Page : 'http://burgers/admin.php'
