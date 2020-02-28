@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 28 2020 г., 12:39
+-- Время создания: Фев 28 2020 г., 13:24
 -- Версия сервера: 5.6.43
 -- Версия PHP: 7.3.9
 
@@ -47,17 +47,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userId`, `street`, `home`, `part`, `appt`, `floor`, `comment`, `needTheChange`, `paymentCard`, `noCallback`) VALUES
-(1, 1, 'cvxcvxcvcv', 'b', '1', '1', '1', '1', 1, 1, 1),
-(2, 1, 'cvxcvxcvcv', 'b', '1', '1', '1', '1', 1, 1, 1),
-(3, 1, 'cvxcvxcvcv', 'b', 'no', '1', '1', '1', 1, 1, 1),
-(4, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(5, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(6, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(7, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(8, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(9, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 1),
-(10, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 0, 1, 1),
-(11, 1, 'cvxcvxcvcv', 'b', '-', '-', '-', '-', 1, 1, 0);
+(12, 1, 'Ивановская', '1', '2', '2', '2', 'Приборы нужны', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +93,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
