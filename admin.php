@@ -15,10 +15,12 @@
                 <h2>Список заказов</h2>
                 <?php
                     require './server/printOrdersTable.php';
+                    printOrdersTable();
                 ?>                  
                 <h2>Список пользователей</h2>       
                 <?php
                     require './server/printUsersTable.php';
+                    printUsersTable();
                 ?>   
             </div>    
         </div>    

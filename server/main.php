@@ -5,10 +5,10 @@ require './sendEmail.php';
 
 $orderData = $_POST;
 
-$userId = auth($orderData['email'], $orderData['name'], $orderData['phone'], $pdo);
-$orderId = createOrder($orderData, $userId, $pdo);
+$userId = auth($orderData['email'], $orderData['name'], $orderData['phone']);
+$orderId = createOrder($orderData, $userId);
 
-sendEmail($userId, $orderId, $pdo);
+sendEmail($userId, $orderId);
 
 
 

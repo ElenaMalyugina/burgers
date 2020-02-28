@@ -1,5 +1,6 @@
 <?php
-function sendEmail($userId, $orderID, $pdo) {
+function sendEmail($userId, $orderID) {
+    global $pdo;
 
     $orderData = ['id'=>$orderID];
     $orderDataQuery = $pdo->prepare('SELECT street, home, part, appt, `floor` from orders WHERE id = :id');

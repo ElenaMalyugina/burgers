@@ -1,9 +1,12 @@
 <?php
-require "connect.php";
-require "printTable.php";
+require_once "connect.php";
+require_once "printTable.php";
 
-$getOrdersQuery = $pdo->prepare("SELECT * FROM orders");
-$getOrdersQuery->execute();
-$orders = $getOrdersQuery->fetchAll(PDO::FETCH_ASSOC); 
-                    
-printTable($orders);
+function printOrdersTable() {
+    global $pdo;
+    $getOrdersQuery = $pdo->prepare("SELECT * FROM orders");
+    $getOrdersQuery->execute();
+    $orders = $getOrdersQuery->fetchAll(PDO::FETCH_ASSOC); 
+                        
+    printTable($orders);
+}

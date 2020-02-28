@@ -1,8 +1,9 @@
 <?php
 require './connect.php';
 
-function auth($email, $name, $phone, $pdo) {
-
+function auth($email, $name, $phone) {
+    global $pdo;
+    
     function getUserId($email, $pdo) {
         $authData = ['email'=>$email];
         $authQuery = $pdo->prepare('SELECT id FROM users WHERE email = :email');

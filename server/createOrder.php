@@ -1,7 +1,9 @@
 <?php
 require './connect.php';
 
-function createOrder($orderData, $userId, $pdo) {
+function createOrder($orderData, $userId) {
+    global $pdo;
+    
     $orderData = [
         'userId'=>$userId,
         'street'=>$orderData['street'], 
