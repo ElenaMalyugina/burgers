@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/vendors.min.css">
+    <link rel="stylesheet" href="../css/main.min.css">
+    <title>Панель управления</title>
 </head>
 <body>
-    <h1>Панель управления</h1>
-    <h2>Список заказов</h2>
-    <?php
-        require "./server/connect.php";
-        require "./server/printTable.php";
-        $getOrdersQuery = $pdo->prepare("SELECT * FROM orders");
-        $getOrdersQuery->execute();
-        $orders = $getOrdersQuery->fetchAll(PDO::FETCH_ASSOC); 
-        
-        printTable($orders);
-    ?>  
-    
-    <h2>Список пользователей</h2>       
-    <?php
-        $getUsersQuery = $pdo->prepare("SELECT * FROM users");
-        $getUsersQuery->execute();
-        $users = $getUsersQuery->fetchAll(PDO::FETCH_ASSOC); 
-
-        printTable($users);
-    ?>           
+    <div class="wrapper">
+        <div class="maincontent">
+            <div class="container">
+                <h1>Панель управления</h1>
+                <h2>Список заказов</h2>
+                <?php
+                    require './server/printOrdersTable.php';
+                ?>                  
+                <h2>Список пользователей</h2>       
+                <?php
+                    require './server/printUsersTable.php';
+                ?>   
+            </div>    
+        </div>    
+    </div>                
 </body>
 </html>
