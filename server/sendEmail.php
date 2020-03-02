@@ -5,13 +5,19 @@ function sendEmail($userId, $orderID) {
     $orderData = ['id'=>$orderID];
     $orderDataQuery = $pdo->prepare('SELECT street, home, part, appt, `floor` from orders WHERE id = :id');
     $orderDataQuery->execute($orderData);
-    $orderData = $orderDataQuery->fetch(PDO::FETCH_ASSOC);
+    $orderData = $orderDataQuery->fetch();
 
     $ordersCount = ['userId'=>$userId];
     $ordersCountQuery = $pdo->prepare('SELECT COUNT(*) as ordersCount FROM orders WHERE userId = :userId');
     $ordersCountQuery->execute($ordersCount);
-    $ordersCountRes = $ordersCountQuery->fetch(PDO::FETCH_ASSOC);
+    $ordersCountRes = $ordersCountQuery->fetch();
     $ordersCount = $ordersCountRes['ordersCount'];
+
+    $userEmail = ['userId'=>$userId];
+    $userEmailQuery = $pdo->prepare('SELECT email FROM users WHERE id = :userId');
+    $userEmailQuery->execute($userEmail);
+    $userEmailRes = $userEmailQuery->fetch();
+    $userEmail = $userEmailRes['email'];    
 
     $outputString = "<h1>Заказ №{$orderID}</h1>" .
                     "<p>Ваш заказ будет доставлен по адресу</p>" .
@@ -19,5 +25,5 @@ function sendEmail($userId, $orderID) {
                     "<p>DarkBeefBurger за 500 рублей, 1 шт</p><br>" .
                     "Спасибо, это уже {$ordersCount} заказ";
 
-    mail('malyugina.el@yandex.ru', 'Заказ', $outputString);
+    mail($userEmail, 'Заказ', $outputString);
 }
